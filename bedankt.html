@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // van https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+        // sla alle gegevens van de 'query string' op in params
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        // voorbeeld URL: "https://example.com/?voornaam=Koen" staat
+        let voornaam  = params.voornaam; // sla de waarde van "voornaam" op in een variabele
+        console.log(voornaam);
+
+
+        let prms = (new URL(document.location)).searchParams;
+        let vn = prms.get("voornaam")
+        console.log(vn);
+    </script>
+</head>
+
+<body>
+    bedankt 
+</body>
+
+</html>
